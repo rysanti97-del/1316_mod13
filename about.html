@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>About Us — SPI Day Planner</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
+
+  <!-- jQuery UI (optional if used on all pages) -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.min.js"></script>
+
+  <!-- Main site stylesheet -->
+  <link rel="stylesheet" href="main.css" />
+</head>
+<body id="top">
+  <div id="container">
+
+    <!-- HEADER -->
+    <header>
+      <h1>About Us</h1>
+    </header>
+
+    <!-- NAV -->
+    <nav aria-label="Primary">
+      <ul>
+        <li><a href="index.html" class="nav-link">Home Page</a></li>
+        <li><a href="itineraries.html" class="nav-link">Half Day Itineraries</a></li>
+        <li><a href="beach-access.html" class="nav-link">Beach Accesses</a></li>
+        <li><a href="sea-turtle.html" class="nav-link">Sea Turtle, Inc.</a></li>
+        <li><a href="budget-food.html" class="nav-link">Budget Food</a></li>
+        <li><a href="contact.html" class="nav-link">Contact Us</a></li>
+        <li><a href="about.html" class="nav-link">About Us</a></li>
+      </ul>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <section class="panel" id="about-section">
+      <h2>About Us</h2>
+
+      <p class="about-intro">
+        At <b>SPI Day Planner</b>, our mission is simple — help visitors enjoy
+        <i>South Padre Island</i> without stress, confusion, or wasted time.
+        Whether you're here for a quick beach trip, a family weekend, or a short getaway,
+        this planner gives you clear guidance so you spend more time relaxing and less time searching. 🌴
+      </p>
+
+      <div class="about-columns">
+        <div class="about-box">
+          <h3>Our Goal</h3>
+          <p>We simplify trip planning with clear, easy itineraries designed for families, students, and weekend visitors.</p>
+        </div>
+
+        <div class="about-box">
+          <h3>Our Approach</h3>
+          <p>We focus on short, realistic plans that help you enjoy the best of SPI — beaches, food, and local experiences — all within half a day.</p>
+        </div>
+
+        <div class="about-box">
+          <h3>Why It Matters</h3>
+          <p>Many visitors don’t have time to explore every corner of the island, so we designed this planner to highlight what is truly worth seeing and doing.</p>
+        </div>
+      </div>
+
+      <p class="about-footer">
+        SPI Day Planner is created by <b>Ryan Santillan</b> as part of a digital media project to showcase
+        accessible, user-friendly tourism design. It combines practical trip planning, clean layouts,
+        and visual navigation — built with HTML, CSS, and simple interactivity.
+        We hope this guide makes your next SPI visit smoother, simpler, and sunnier. ☀️
+      </p>
+    </section>
+
+    <!-- PHOTO CARD ROW (same as on home page) -->
+    <section class="cards-row" aria-label="Plan by Activity">
+      <a class="card" href="itineraries.html">
+        <img src="images/sunsetplan.jpeg" alt="Sunset at Isla Blanca Park" />
+        <span class="card-title">Sunset Plan — Isla Blanca</span>
+      </a>
+
+      <a class="card" href="beach-access.html">
+        <img src="images/beachaccess.jpeg" alt="Wide sandy beach access" />
+        <span class="card-title">Beach Access Map &amp; Fees</span>
+      </a>
+
+      <a class="card" href="sea-turtle.html">
+        <img src="images/sea turtle.jpeg" alt="Sea Turtle, Inc. entrance" />
+        <span class="card-title">Sea Turtle, Inc.</span>
+      </a>
+
+      <a class="card" href="budget-food.html">
+        <img src="images/budgeteat.jpeg" alt="Casual budget eats plate" />
+        <span class="card-title">Budget Eats &amp; Snacks</span>
+      </a>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <p>&copy; <span id="year"></span> Ryan Santillan • SPI Day Planner</p>
+      <p><a href="#top" class="back-to-top">Back to Top ↑</a></p>
+    </footer>
+  </div>
+
+  <!-- YEAR SCRIPT -->
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+  <!-- Active nav highlight -->
+  <script>
+    const currentPage = window.location.pathname.split("/").pop();
+    document.querySelectorAll("nav a").forEach(link => {
+      if (link.getAttribute("href") === currentPage) {
+        link.classList.add("active");
+      }
+    });
+  </script>
+
+</body>
+</html>

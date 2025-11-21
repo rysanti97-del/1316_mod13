@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sea Turtle, Inc. — SPI Day Planner</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
+
+  <!-- jQuery UI -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.min.js"></script>
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="main.css" />
+</head>
+<body id="top">
+  <div id="container">
+
+    <!-- HEADER -->
+    <header>
+      <h1>Sea Turtle, Inc.</h1>
+      <p class="subtitle">A must-visit rescue center on South Padre Island</p>
+    </header>
+
+    <!-- NAV -->
+    <nav aria-label="Primary">
+      <ul>
+        <li><a href="index.html" class="nav-link">Home Page</a></li>
+        <li><a href="itineraries.html" class="nav-link">Half Day Itineraries</a></li>
+        <li><a href="beach-access.html" class="nav-link">Beach Accesses</a></li>
+        <li><a href="sea-turtle.html" class="nav-link">Sea Turtle, Inc.</a></li>
+        <li><a href="budget-food.html" class="nav-link">Budget Food</a></li>
+        <li><a href="contact.html" class="nav-link">Contact Us</a></li>
+        <li><a href="about.html" class="nav-link">About Us</a></li>
+      </ul>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <section class="panel" id="turtle-center">
+
+      <h2>Visitor Information</h2>
+
+      <p class="home-intro">
+        Sea Turtle, Inc. is one of the most popular educational stops on South Padre Island. The center
+        focuses on sea turtle rescue, rehabilitation, and conservation, offering exhibits that are great
+        for families, students, and anyone interested in coastal wildlife.
+      </p>
+
+      <!-- INFO BOX -->
+      <div class="home-grid" style="margin-top:15px;">
+        <article class="home-box">
+          <h3>Hours</h3>
+          <p>Plan to spend <b>30–60 minutes</b> exploring the exhibits and meeting the resident turtles.</p>
+        </article>
+
+        <article class="home-box">
+          <h3>Cost</h3>
+          <p>General admission is <b>budget-friendly</b>. Prices may vary, so check the official website before your trip.</p>
+        </article>
+
+        <article class="home-box">
+          <h3>What to Expect</h3>
+          <ul class="dotline">
+            <li>Rescue and rehab turtle tanks</li>
+            <li>Educational conservation displays</li>
+            <li>A family-friendly gift shop</li>
+          </ul>
+        </article>
+      </div>
+
+      <!-- MAP -->
+      <h3 style="margin-top:25px;">Location Map</h3>
+      <div class="map-embed" style="margin-top:10px;">
+        <iframe
+          title="Sea Turtle, Inc. on Google Maps"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3574.7923520821484!2d-97.1659!3d26.1144!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x866f917c7b4c6e37%3A0x0!2sSea%20Turtle%2C%20Inc.!5e0!3m2!1sen!2sus!4v1700000000000"
+          loading="lazy"
+        ></iframe>
+      </div>
+
+      <!-- LINK TO OFFICIAL SITE -->
+      <p style="margin-top:15px;">
+        Learn more, view programs, and check current entry fees at:
+        <a href="https://seaturtleinc.org/" target="_blank" rel="noopener noreferrer">
+          seaturtleinc.org
+        </a>
+      </p>
+
+    </section>
+
+    <!-- BOTTOM CARDS -->
+    <section class="cards-row" aria-label="Plan by Activity">
+      <a class="card" href="itineraries.html">
+        <img src="images/sunsetplan.jpeg" alt="Sunset at Isla Blanca Park" />
+        <span class="card-title">Sunset Plan — Isla Blanca</span>
+      </a>
+
+      <a class="card" href="beach-access.html">
+        <img src="images/beachaccess.jpeg" alt="Wide sandy beach access" />
+        <span class="card-title">Beach Access Map &amp; Fees</span>
+      </a>
+
+      <a class="card" href="sea-turtle.html">
+        <img src="images/sea turtle.jpeg" alt="Sea Turtle, Inc. entrance" />
+        <span class="card-title">Sea Turtle, Inc.</span>
+      </a>
+
+      <a class="card" href="budget-food.html">
+        <img src="images/budgeteat.jpeg" alt="Casual budget eats plate" />
+        <span class="card-title">Budget Eats &amp; Snacks</span>
+      </a>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <p>&copy; <span id="year"></span> Ryan Santillan • SPI Day Planner</p>
+      <p><a href="#top" class="back-to-top">Back to Top ↑</a></p>
+    </footer>
+
+  </div>
+
+  <!-- SCRIPTS -->
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const currentPage = window.location.pathname.split("/").pop();
+    document.querySelectorAll("nav a").forEach(link => {
+      if (link.getAttribute("href") === currentPage) {
+        link.classList.add("active");
+      }
+    });
+  </script>
+
+</body>
+</html>

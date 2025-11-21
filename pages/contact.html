@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Contact Us — SPI Day Planner</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
+
+  <!-- jQuery UI (optional if used on all pages) -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.min.js"></script>
+
+  <!-- Main site stylesheet -->
+  <link rel="stylesheet" href="main.css" />
+</head>
+<body id="top">
+  <div id="container">
+
+    <!-- HEADER -->
+    <header>
+      <h1>Contact Us</h1>
+    </header>
+
+    <!-- NAV -->
+    <nav aria-label="Primary">
+      <ul>
+        <li><a href="index.html" class="nav-link">Home Page</a></li>
+        <li><a href="itineraries.html" class="nav-link">Half Day Itineraries</a></li>
+        <li><a href="beach-access.html" class="nav-link">Beach Accesses</a></li>
+        <li><a href="sea-turtle.html" class="nav-link">Sea Turtle, Inc.</a></li>
+        <li><a href="budget-food.html" class="nav-link">Budget Food</a></li>
+        <li><a href="contact.html" class="nav-link">Contact Us</a></li>
+        <li><a href="about.html" class="nav-link">About Us</a></li>
+      </ul>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <section class="panel" id="contact-panel">
+      <h2>Send a Message</h2>
+
+      <p class="contact-intro">
+        Have a question about beach access, timing, or where to grab food on a budget?
+        Send us a quick message and we’ll use your feedback to keep improving the SPI Day Planner
+        for future visitors and students.
+      </p>
+
+      <div class="contact-grid">
+        <!-- FORM COLUMN -->
+        <div class="contact-form-box">
+          <form id="contactForm">
+            <label for="name">Name</label><br>
+            <input type="text" id="name" name="name" required><br><br>
+
+            <label for="email">Email</label><br>
+            <input type="email" id="email" name="email" required><br><br>
+
+            <label for="message">Message</label><br>
+            <textarea id="message" name="message" rows="6" required></textarea><br><br>
+
+            <button type="submit">Send</button>
+          </form>
+        </div>
+
+        <!-- INFO COLUMN -->
+        <div class="contact-info-box">
+          <h3>What Can You Share?</h3>
+          <ul>
+            <li>Tips about your favorite SPI spots</li>
+            <li>Questions about half-day plans or parking</li>
+            <li>Suggestions to make this planner clearer</li>
+          </ul>
+
+          <h3 style="margin-top:18px;">Response &amp; Privacy</h3>
+          <p>
+            This form is for class and planning purposes only. We won’t share your
+            name or email — it’s just used to review feedback and improve the project.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PHOTO CARD ROW -->
+    <section class="cards-row" aria-label="Plan by Activity">
+      <a class="card" href="itineraries.html">
+        <img src="images/sunsetplan.jpeg" alt="Sunset at Isla Blanca Park" />
+        <span class="card-title">Sunset Plan — Isla Blanca</span>
+      </a>
+
+      <a class="card" href="beach-access.html">
+        <img src="images/beachaccess.jpeg" alt="Wide sandy beach access" />
+        <span class="card-title">Beach Access Map &amp; Fees</span>
+      </a>
+
+      <a class="card" href="sea-turtle.html">
+        <img src="images/sea turtle.jpeg" alt="Sea Turtle, Inc. entrance" />
+        <span class="card-title">Sea Turtle, Inc.</span>
+      </a>
+
+      <a class="card" href="budget-food.html">
+        <img src="images/budgeteat.jpeg" alt="Casual budget eats plate" />
+        <span class="card-title">Budget Eats &amp; Snacks</span>
+      </a>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <p>&copy; <span id="year"></span> Ryan Santillan • SPI Day Planner</p>
+      <p><a href="#top" class="back-to-top">Back to Top ↑</a></p>
+    </footer>
+  </div>
+
+  <!-- YEAR SCRIPT -->
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+  <!-- Simple form handler -->
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      alert('Thanks! Your message has been sent.');
+      this.reset();
+    });
+
+    const currentPage = window.location.pathname.split("/").pop();
+    document.querySelectorAll("nav a").forEach(link => {
+      if (link.getAttribute("href") === currentPage) {
+        link.classList.add("active");
+      }
+    });
+  </script>
+
+</body>
+</html>
+

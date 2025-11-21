@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Half Day Itineraries — SPI Day Planner</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
+
+  <!-- jQuery UI (optional) -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.min.js"></script>
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="main.css" />
+</head>
+<body id="top">
+  <div id="container">
+
+    <!-- HEADER -->
+    <header>
+      <h1>Half Day Itineraries</h1>
+    </header>
+
+    <!-- NAV -->
+    <nav aria-label="Primary">
+      <ul>
+        <li><a href="index.html" class="nav-link">Home Page</a></li>
+        <li><a href="itineraries.html" class="nav-link">Half Day Itineraries</a></li>
+        <li><a href="beach-access.html" class="nav-link">Beach Accesses</a></li>
+        <li><a href="sea-turtle.html" class="nav-link">Sea Turtle, Inc.</a></li>
+        <li><a href="budget-food.html" class="nav-link">Budget Food</a></li>
+        <li><a href="contact.html" class="nav-link">Contact Us</a></li>
+        <li><a href="about.html" class="nav-link">About Us</a></li>
+      </ul>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <section class="panel" id="itineraries-page">
+      <h2>Plan Your Half Day on SPI</h2>
+
+      <p class="home-intro">
+        Not sure if you should start with the beach, Sea Turtle, Inc., or food? Use this page to pick a
+        <b>morning, afternoon, or sunset plan</b> that fits your schedule. Each option keeps things realistic
+        so you can enjoy the island without feeling rushed.
+      </p>
+
+      <!-- PLAN HELPER -->
+      <div class="plan-helper" aria-live="polite">
+        <label for="planSelect"><b>Plan Helper:</b> Choose a time of day</label>
+        <div class="controls">
+          <select id="planSelect" name="planSelect" aria-label="Choose a time of day">
+            <option value="morning">Morning Plan ☀️</option>
+            <option value="afternoon">Afternoon Plan 🌤️</option>
+            <option value="sunset">Sunset Plan 🌇</option>
+          </select>
+          <button id="showPlanBtn" type="button">Show Suggested Plan</button>
+        </div>
+        <p id="planSummary" class="summary" tabindex="0" aria-live="polite"></p>
+      </div>
+
+      <!-- JS-INJECTED PLAN DETAILS -->
+      <div id="planDetails" class="plans" aria-live="polite"></div>
+
+      <!-- STATIC QUICK LOOK GRID -->
+      <h3 class="itinerary-subheading" style="margin-top:20px;">Quick Look at Each Plan</h3>
+      <div class="home-grid">
+        <article class="home-box">
+          <h3>Morning Plan ☀️</h3>
+          <ul class="dotline">
+            <li>Start early at the beach near Beach Access #3 or Isla Blanca Park.</li>
+            <li>Visit Sea Turtle, Inc. for a short, educational stop.</li>
+            <li>Grab a budget-friendly lunch before heading out.</li>
+          </ul>
+        </article>
+
+        <article class="home-box">
+          <h3>Afternoon Plan 🌤️</h3>
+          <ul class="dotline">
+            <li>Begin at Sea Turtle, Inc. while the sun is still high.</li>
+            <li>Drive onto Beach Access #6 (when conditions allow).</li>
+            <li>Cool off with shaved ice or a drink on the way back.</li>
+          </ul>
+        </article>
+
+        <article class="home-box">
+          <h3>Sunset Plan 🌇</h3>
+          <ul class="dotline">
+            <li>Spend the late afternoon at Isla Blanca Park and the jetties.</li>
+            <li>Make a quick stop for pizza or a seafood basket.</li>
+            <li>Return to the jetties for sunset and golden-hour photos.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- BOTTOM CARDS -->
+    <section class="cards-row" aria-label="Plan by Activity">
+      <a class="card" href="itineraries.html">
+        <img src="images/sunsetplan.jpeg" alt="Sunset at Isla Blanca Park" />
+        <span class="card-title">Sunset Plan — Isla Blanca</span>
+      </a>
+
+      <a class="card" href="beach-access.html">
+        <img src="images/beachaccess.jpeg" alt="Wide sandy beach access" />
+        <span class="card-title">Beach Access Map &amp; Fees</span>
+      </a>
+
+      <a class="card" href="sea-turtle.html">
+        <img src="images/sea turtle.jpeg" alt="Sea Turtle, Inc. entrance" />
+        <span class="card-title">Sea Turtle, Inc.</span>
+      </a>
+
+      <a class="card" href="budget-food.html">
+        <img src="images/budgeteat.jpeg" alt="Casual budget eats plate" />
+        <span class="card-title">Budget Eats &amp; Snacks</span>
+      </a>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <p>&copy; <span id="year"></span> Ryan Santillan • SPI Day Planner</p>
+      <p><a href="#top" class="back-to-top">Back to Top ↑</a></p>
+    </footer>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    (function(){
+      const planSelect   = document.getElementById('planSelect');
+      const showBtn      = document.getElementById('showPlanBtn');
+      const planSummary  = document.getElementById('planSummary');
+      const planDetails  = document.getElementById('planDetails');
+
+      const PLANS = {
+        morning: {
+          title: "Morning Plan ☀️",
+          summary: "🌟 Morning: 9:00–10:30 Beach → 10:45–11:30 Sea Turtle, Inc. → 11:45–12:30 Lunch.",
+          items: [
+            "9:00–10:30 Beach time (Access #3 or Isla Blanca Park)",
+            "10:45–11:30 Sea Turtle, Inc.",
+            "11:45–12:30 Budget lunch (tacos or seafood basket)"
+          ]
+        },
+        afternoon: {
+          title: "Afternoon Plan 🌤️",
+          summary: "🌟 Afternoon: 1:00–1:45 Sea Turtle, Inc. → 2:00–4:00 Beach Access #6 → 4:15–4:45 Snack.",
+          items: [
+            "1:00–1:45 Sea Turtle, Inc.",
+            "2:00–4:00 Beach Access #6 (drive-on if sand allows)",
+            "4:15–4:45 Snack stop (shaved ice or cold drinks)"
+          ]
+        },
+        sunset: {
+          title: "Sunset Plan 🌇",
+          summary: "🌟 Sunset: 3:00–5:00 Isla Blanca Park → 5:15–6:00 Quick bites → 6:15–sunset Golden hour at jetties.",
+          items: [
+            "3:00–5:00 Isla Blanca Park (jetties & views)",
+            "5:15–6:00 Quick bites",
+            "6:15–sunset Golden hour at the jetties"
+          ]
+        }
+      };
+
+      function render(key){
+        const p = PLANS[key];
+        if (!p) return;
+        planSummary.textContent = p.summary;
+        planDetails.innerHTML = `
+          <article class="plan">
+            <h3>${p.title}</h3>
+            <ul class="dotline">
+              ${p.items.map(i => `<li>${i}</li>`).join("")}
+            </ul>
+          </article>
+        `;
+      }
+
+      showBtn.addEventListener('click', () => render(planSelect.value));
+      planSelect.addEventListener('change', () => render(planSelect.value));
+      render('morning');
+    })();
+
+    // Active nav highlight
+    const currentPage = window.location.pathname.split("/").pop();
+    document.querySelectorAll("nav a").forEach(link => {
+      if (link.getAttribute("href") === currentPage) {
+        link.classList.add("active");
+      }
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Best Beach Access — SPI Day Planner</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
+
+  <!-- jQuery UI -->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.min.js"></script>
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="main.css" />
+</head>
+<body id="top">
+  <div id="container">
+
+    <!-- HEADER -->
+    <header>
+      <h1>Best Beach Access</h1>
+      <p class="subtitle">Find the right entry point for your visit</p>
+    </header>
+
+    <!-- NAV -->
+    <nav aria-label="Primary">
+      <ul>
+        <li><a href="index.html" class="nav-link">Home Page</a></li>
+        <li><a href="itineraries.html" class="nav-link">Half Day Itineraries</a></li>
+        <li><a href="beach-access.html" class="nav-link">Beach Accesses</a></li>
+        <li><a href="sea-turtle.html" class="nav-link">Sea Turtle, Inc.</a></li>
+        <li><a href="budget-food.html" class="nav-link">Budget Food</a></li>
+        <li><a href="contact.html" class="nav-link">Contact Us</a></li>
+        <li><a href="about.html" class="nav-link">About Us</a></li>
+      </ul>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <section class="panel" id="beach-access-page">
+      <h2>Compare the Top Beach Access Points</h2>
+
+      <p class="home-intro">
+        Whether you want easy parking, quick walk-on access, or the freedom of drive-on sand, this guide 
+        helps you choose the best option for your visit. Compare fees, amenities, and atmosphere across 
+        the island’s most popular entry points.
+      </p>
+
+      <!-- TABLE -->
+      <div class="table-wrap" style="margin-top:20px;">
+        <table class="compare">
+          <caption>Beach Access Comparison</caption>
+          <thead>
+            <tr>
+              <th>Location</th>
+              <th>Fees</th>
+              <th>Amenities</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Isla Blanca Park</th>
+              <td>$ (entry)</td>
+              <td>Restrooms, showers, jetties, snack stands</td>
+              <td>Most convenient; great views</td>
+            </tr>
+            <tr>
+              <th scope="row">Andy Bowie Park</th>
+              <td>$ (parking)</td>
+              <td>Restrooms, showers</td>
+              <td>Quieter north-end vibe</td>
+            </tr>
+            <tr>
+              <th scope="row">Access #3 (walk-on)</th>
+              <td>Free</td>
+              <td>Limited amenities</td>
+              <td>Arrive early for parking</td>
+            </tr>
+            <tr>
+              <th scope="row">Access #6 (drive-on)</th>
+              <td>Free (+ conditions)</td>
+              <td>No facilities</td>
+              <td>Check tides &amp; traction</td>
+            </tr>
+            <tr>
+              <th scope="row">City Beach Lots</th>
+              <td>Varies</td>
+              <td>Near shops &amp; food</td>
+              <td>Watch signs &amp; meters</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- QUICK TIPS -->
+      <h3 style="margin-top:25px;">Helpful Tips</h3>
+      <ul class="checklist" style="margin-top:10px;">
+        <li>Arrive early for shaded parking and cooler sand.</li>
+        <li>Carry small bills or a debit card for parking meters.</li>
+        <li>Check tide levels before accessing drive-on areas (#6).</li>
+        <li>Pack extra water if you choose a no-amenities beach.</li>
+      </ul>
+    </section>
+
+    <!-- BOTTOM CARDS -->
+    <section class="cards-row" aria-label="Plan by Activity">
+      <a class="card" href="itineraries.html">
+        <img src="images/sunsetplan.jpeg" alt="Sunset at Isla Blanca Park" />
+        <span class="card-title">Sunset Plan — Isla Blanca</span>
+      </a>
+
+      <a class="card" href="beach-access.html">
+        <img src="images/beachaccess.jpeg" alt="Wide sandy beach access" />
+        <span class="card-title">Beach Access Map &amp; Fees</span>
+      </a>
+
+      <a class="card" href="sea-turtle.html">
+        <img src="images/sea turtle.jpeg" alt="Sea Turtle, Inc. entrance" />
+        <span class="card-title">Sea Turtle, Inc.</span>
+      </a>
+
+      <a class="card" href="budget-food.html">
+        <img src="images/budgeteat.jpeg" alt="Casual budget eats plate" />
+        <span class="card-title">Budget Eats &amp; Snacks</span>
+      </a>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <p>&copy; <span id="year"></span> Ryan Santillan • SPI Day Planner</p>
+      <p><a href="#top" class="back-to-top">Back to Top ↑</a></p>
+    </footer>
+
+  </div>
+
+  <!-- SCRIPTS -->
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const currentPage = window.location.pathname.split("/").pop();
+    document.querySelectorAll("nav a").forEach(link => {
+      if (link.getAttribute("href") === currentPage) {
+        link.classList.add("active");
+      }
+    });
+  </script>
+
+</body>
+</html>
